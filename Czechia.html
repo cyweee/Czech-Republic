@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Objevte krásy České republiky — zemi gotických katedrál, léčivých pramenů a středověkých zámků." />
+    <title>Česká republika — Srdce Evropy</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGACE
+============================================================ -->
+<header class="site-header" id="site-header">
+    <nav class="nav container">
+        <a href="#hero" class="nav__logo">
+            <span class="nav__logo-icon">⬡</span>
+            <span>Česko</span>
+        </a>
+
+        <!-- Hamburger tlačítko pro mobil -->
+        <button class="nav__burger" id="burger-btn" aria-label="Otevřít menu" aria-expanded="false">
+            <span class="nav__burger-line"></span>
+            <span class="nav__burger-line"></span>
+            <span class="nav__burger-line"></span>
+        </button>
+
+        <ul class="nav__links" id="nav-links">
+            <li><a href="#o-cesku" class="nav__link">O Česku</a></li>
+            <li><a href="#dominanty" class="nav__link">Dominanty</a></li>
+            <li><a href="#galerie" class="nav__link">Galerie</a></li>
+            <li><a href="#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- ============================================================
+         HERO SEKCE
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="hero__bg-wrap">
+            <img
+                    src="https://images.unsplash.com/photo-1541849546-216549ae216d?w=1800&q=85&auto=format&fit=crop"
+                    alt="Pohled na Prahu při soumraku"
+                    class="hero__bg-img"
+                    loading="eager"
+            />
+            <div class="hero__overlay"></div>
+        </div>
+
+        <div class="hero__content container">
+            <p class="hero__eyebrow reveal-up">Srdce Evropy</p>
+            <h1 class="hero__title reveal-up">
+                Česká<br />
+                <em>republika</em>
+            </h1>
+            <p class="hero__sub reveal-up">
+                Tisíc let architektury, kultury a příběhů<br />
+                ukrytých v kamenných uličkách.
+            </p>
+            <a href="#dominanty" class="btn btn--primary reveal-up">
+                Objevit krásy
+                <span class="btn__arrow">↓</span>
+            </a>
+        </div>
+
+        <!-- Scroll indikátor -->
+        <div class="hero__scroll-hint" aria-hidden="true">
+            <span class="hero__scroll-line"></span>
+            <span class="hero__scroll-text">Scroll</span>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         O ČESKU
+    ============================================================ -->
+    <section class="about" id="o-cesku">
+        <div class="container">
+            <div class="about__grid">
+
+                <div class="about__text-col">
+                    <p class="section-eyebrow reveal-up">O Česku</p>
+                    <h2 class="section-title reveal-up">
+                        Země, kde se<br />dějiny dotýkají nebe
+                    </h2>
+                    <p class="about__lead reveal-up">
+                        Česká republika leží v samém středu Evropy a po staletí
+                        funguje jako křižovatka kultur, idejí a umění. Gotické
+                        katedrály se tu tyčí vedle barokních paláců, a v každém
+                        dlážděném dvorku dýchá éra Habsburků i éra avantgardy.
+                    </p>
+                    <p class="about__body reveal-up">
+                        Česká krajina přechází od podkrkonošských hřebenů přes
+                        viničná jihomoravská úpatí až ke středočeským rybníkům.
+                        Jsou tu světoznámá lázeňská města, UNESCO památky a živá
+                        umělecká scéna, která přitahuje cestovatele z celého světa.
+                    </p>
+                    <div class="about__stats reveal-up">
+                        <div class="about__stat">
+                            <span class="about__stat-num">14</span>
+                            <span class="about__stat-label">lokalit UNESCO</span>
+                        </div>
+                        <div class="about__stat">
+                            <span class="about__stat-num">2 500</span>
+                            <span class="about__stat-label">hradů a zámků</span>
+                        </div>
+                        <div class="about__stat">
+                            <span class="about__stat-num">1&nbsp;000+</span>
+                            <span class="about__stat-label">let historie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__img-col reveal-right">
+                    <div class="about__img-frame">
+                        <img
+                                src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?w=900&q=80&auto=format&fit=crop"
+                                alt="Staroměstské náměstí v Praze"
+                                loading="lazy"
+                        />
+                        <div class="about__img-badge">
+                            <span>Praha</span>
+                            <small>Zlaté město stověžaté</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         DOMINANTY / MÍSTA
+    ============================================================ -->
+    <section class="places" id="dominanty">
+        <div class="container">
+            <p class="section-eyebrow reveal-up" style="text-align:center">Dominanty</p>
+            <h2 class="section-title section-title--center reveal-up">
+                Místa, která okouzlí
+            </h2>
+            <p class="places__intro reveal-up">
+                Od středověkých ulic Prahy po romantické zahrady Kroměříže —
+                každý kout Česka skrývá vlastní příběh.
+            </p>
+
+            <div class="places__grid">
+
+                <!-- Karta 1 — Praha -->
+                <article class="place-card reveal-up">
+                    <div class="place-card__img-wrap">
+                        <img
+                                src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80&auto=format&fit=crop"
+                                alt="Pražský hrad a Vltava"
+                                loading="lazy"
+                        />
+                        <span class="place-card__tag">Praha</span>
+                    </div>
+                    <div class="place-card__body">
+                        <h3 class="place-card__title">Zlaté město</h3>
+                        <p class="place-card__desc">
+                            Pražský hrad, Karlův most, Josefov. Metropole, kde
+                            románský sloh plynule přechází do secese.
+                        </p>
+                        <a href="#" class="place-card__link">Více o Praze <span>→</span></a>
+                    </div>
+                </article>
+
+                <!-- Karta 2 — Český Krumlov -->
+                <article class="place-card reveal-up">
+                    <div class="place-card__img-wrap">
+                        <img
+                                src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80&auto=format&fit=crop"
+                                alt="Zámek Český Krumlov"
+                                loading="lazy"
+                        />
+                        <span class="place-card__tag">Jižní Čechy</span>
+                    </div>
+                    <div class="place-card__body">
+                        <h3 class="place-card__title">Český Krumlov</h3>
+                        <p class="place-card__desc">
+                            Středověký zámek obtočený ramenem Vltavy. Nejfotografovanější
+                            místo republiky a perla UNESCO.
+                        </p>
+                        <a href="#" class="place-card__link">Více o Krumlovu <span>→</span></a>
+                    </div>
+                </article>
+
+                <!-- Karta 3 — Karlovy Vary -->
+                <article class="place-card reveal-up">
+                    <div class="place-card__img-wrap">
+                        <img
+                                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80&auto=format&fit=crop"
+                                alt="Kolonáda v Karlových Varech"
+                                loading="lazy"
+                        />
+                        <span class="place-card__tag">Západní Čechy</span>
+                    </div>
+                    <div class="place-card__body">
+                        <h3 class="place-card__title">Karlovy Vary</h3>
+                        <p class="place-card__desc">
+                            Léčivé prameny, empírové kolonády a filmový festival,
+                            který přitahuje svět od roku 1946.
+                        </p>
+                        <a href="#" class="place-card__link">Více o Varech <span>→</span></a>
+                    </div>
+                </article>
+
+                <!-- Karta 4 — Brno -->
+                <article class="place-card reveal-up">
+                    <div class="place-card__img-wrap">
+                        <img
+                                src="https://images.unsplash.com/photo-1607427293702-036933bbf746?w=800&q=80&auto=format&fit=crop"
+                                alt="Brno — katedrála sv. Petra a Pavla"
+                                loading="lazy"
+                        />
+                        <span class="place-card__tag">Morava</span>
+                    </div>
+                    <div class="place-card__body">
+                        <h3 class="place-card__title">Brno</h3>
+                        <p class="place-card__desc">
+                            Druhé největší město Česka — centrum moderní architektury,
+                            moravského vína a živé kulturní scény.
+                        </p>
+                        <a href="#" class="place-card__link">Více o Brně <span>→</span></a>
+                    </div>
+                </article>
+
+                <!-- Karta 5 — Kroměříž -->
+                <article class="place-card reveal-up">
+                    <div class="place-card__img-wrap">
+                        <img
+                                src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=800&q=80&auto=format&fit=crop"
+                                alt="Zahrady zámku Kroměříž"
+                                loading="lazy"
+                        />
+                        <span class="place-card__tag">Střední Morava</span>
+                    </div>
+                    <div class="place-card__body">
+                        <h3 class="place-card__title">Kroměříž</h3>
+                        <p class="place-card__desc">
+                            Arcibiskupský zámek s barokními zahradami — jeden
+                            z nejlépe dochovaných rezidenčních komplexů ve střední Evropě.
+                        </p>
+                        <a href="#" class="place-card__link">Více o Kroměříži <span>→</span></a>
+                    </div>
+                </article>
+
+                <!-- Karta 6 — Šumava -->
+                <article class="place-card reveal-up">
+                    <div class="place-card__img-wrap">
+                        <img
+                                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80&auto=format&fit=crop"
+                                alt="Šumavský les a jezero"
+                                loading="lazy"
+                        />
+                        <span class="place-card__tag">Šumava</span>
+                    </div>
+                    <div class="place-card__body">
+                        <h3 class="place-card__title">Šumava</h3>
+                        <p class="place-card__desc">
+                            „Zelená střecha Evropy" — NP s neprůhledně tichými
+                            pralesy, rašeliništi a ledovcovými jezery.
+                        </p>
+                        <a href="#" class="place-card__link">Více o Šumavě <span>→</span></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CITÁT / PROMO BANNER
+    ============================================================ -->
+    <section class="quote-band">
+        <div class="container">
+            <blockquote class="quote-band__quote reveal-up">
+                <p>
+                    „Praha nikdy nepouští — ani toho, kdo přišel,<br />
+                    ani toho, kdo odešel."
+                </p>
+                <cite>— Franz Kafka</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         GALERIE
+    ============================================================ -->
+    <section class="gallery" id="galerie">
+        <div class="container">
+            <p class="section-eyebrow reveal-up" style="text-align:center">Galerie</p>
+            <h2 class="section-title section-title--center reveal-up">
+                Česko v obrazech
+            </h2>
+        </div>
+
+        <!-- Asymetrická galerie — mimo container pro full-width -->
+        <div class="gallery__mosaic">
+
+            <div class="gallery__item gallery__item--tall reveal-up">
+                <img
+                        src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80&auto=format&fit=crop"
+                        alt="Karlův most při svítání"
+                        loading="lazy"
+                />
+                <div class="gallery__caption">Karlův most, Praha</div>
+            </div>
+
+            <div class="gallery__item reveal-up">
+                <img
+                        src="https://images.unsplash.com/photo-1598135753163-6167c1a1ad65?w=800&q=80&auto=format&fit=crop"
+                        alt="Česká krajina"
+                        loading="lazy"
+                />
+                <div class="gallery__caption">Českomoravská vysočina</div>
+            </div>
+
+            <div class="gallery__item reveal-up">
+                <img
+                        src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=800&q=80&auto=format&fit=crop"
+                        alt="Lázeňská kolonáda"
+                        loading="lazy"
+                />
+                <div class="gallery__caption">Mariánské Lázně</div>
+            </div>
+
+            <div class="gallery__item gallery__item--wide reveal-up">
+                <img
+                        src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1200&q=80&auto=format&fit=crop"
+                        alt="Panorama Prahy"
+                        loading="lazy"
+                />
+                <div class="gallery__caption">Praha při soumraku</div>
+            </div>
+
+            <div class="gallery__item reveal-up">
+                <img
+                        src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80&auto=format&fit=crop"
+                        alt="Lázeňská architektura"
+                        loading="lazy"
+                />
+                <div class="gallery__caption">Karlovy Vary</div>
+            </div>
+
+            <div class="gallery__item gallery__item--tall reveal-up">
+                <img
+                        src="https://images.unsplash.com/photo-1504870712357-65ea720d6078?w=800&q=80&auto=format&fit=crop"
+                        alt="Vinné sklepy na Moravě"
+                        loading="lazy"
+                />
+                <div class="gallery__caption">Jihomoravské vinice</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CTA — POZVÁNÍ DO ČESKA
+    ============================================================ -->
+    <section class="cta-invite" id="kontakt">
+        <div class="cta-invite__bg-wrap">
+            <img
+                    src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1800&q=85&auto=format&fit=crop"
+                    alt="Praha při zlaté hodince"
+                    class="cta-invite__bg-img"
+                    loading="lazy"
+            />
+            <div class="cta-invite__overlay"></div>
+        </div>
+
+        <div class="container cta-invite__inner">
+
+            <p class="section-eyebrow cta-invite__eyebrow reveal-up">Přijeď to zažít</p>
+
+            <h2 class="cta-invite__title reveal-up">
+                Česko tě<br />
+                čeká <em>naživo.</em>
+            </h2>
+
+            <p class="cta-invite__text reveal-up">
+                Žádná fotka to nedokáže. Ani ta nejlepší.<br />
+                Vůně starých uliček, chlad kamenných katedrál,<br />
+                výhled z hradeb při západu slunce —<br />
+                tohle musíš prostě sám vidět.
+            </p>
+
+            <div class="cta-invite__pills reveal-up">
+                <span class="cta-pill">🏰 Praha za svítání</span>
+                <span class="cta-pill">🌊 Vltava v mlze</span>
+                <span class="cta-pill">🍷 Moravské víno</span>
+                <span class="cta-pill">🌲 Šumavský les</span>
+            </div>
+
+            <div class="cta-invite__actions reveal-up">
+                <a href="#dominanty" class="btn btn--invite-primary">
+                    Naplánuj cestu
+                    <span class="btn__arrow">→</span>
+                </a>
+                <a href="#galerie" class="btn btn--invite-ghost">
+                    Prohlédnout galerii
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer__inner">
+            <a href="#hero" class="footer__logo">⬡ Česko</a>
+            <p class="footer__copy">
+                © 2025 Česká republika — Srdce Evropy.<br />
+                Všechna práva vyhrazena.
+            </p>
+            <nav class="footer__nav" aria-label="Patičková navigace">
+                <a href="#o-cesku">O Česku</a>
+                <a href="#dominanty">Dominanty</a>
+                <a href="#galerie">Galerie</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<!-- Back-to-top tlačítko -->
+<button class="back-to-top" id="back-to-top" aria-label="Zpět nahoru">↑</button>
+
+<script src="cz.js"></script>
+</body>
+</html>
