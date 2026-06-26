@@ -1,41 +1,8 @@
-/**
- * script.js — Česká republika: Srdce Evropy
- * Vanilla JS — žádné závislosti.
- * Funkce:
- *  1. Sticky navigace — mění styl po srolování
- *  2. Hamburger menu pro mobil
- *  3. Smooth scroll pro interní kotvy
- *  4. Scroll animace (Intersection Observer API)
- *  5. Hero parallax efekt
- *  6. Aktivní odkaz v navigaci při srolování (Scrollspy)
- *  7. Back-to-top tlačítko
- *  8. Kontaktní formulář
- */
-
 'use strict';
 
-/* ================================================================
-   POMOCNÉ FUNKCE
-================================================================ */
-
-/**
- * Vrátí element podle CSS selektoru.
- * @param {string} selector
- * @param {Element} [scope=document]
- */
 const qs = (selector, scope = document) => scope.querySelector(selector);
-
-/**
- * Vrátí NodeList elementů podle CSS selektoru.
- * @param {string} selector
- * @param {Element} [scope=document]
- */
 const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
 
-/* ================================================================
-   1. STICKY NAVIGACE
-   Přidává třídu .scrolled hlavičce po srolování > 60px.
-================================================================ */
 (function initStickyNav() {
     const header = qs('#site-header');
     if (!header) return;
@@ -50,16 +17,10 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
         }
     }
 
-    // Okamžitá kontrola (pro případ, že stránka je načtena po srolování)
     updateHeader();
-
     window.addEventListener('scroll', updateHeader, { passive: true });
 })();
 
-/* ================================================================
-   2. HAMBURGER MENU
-   Otevírá / zavírá mobilní navigaci a blokuje scroll stránky.
-================================================================ */
 (function initHamburger() {
     const burger     = qs('#burger-btn');
     const navLinks   = qs('#nav-links');
@@ -81,18 +42,15 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
         document.body.style.overflow = '';
     }
 
-    // Toggle při kliknutí na hamburger
     burger.addEventListener('click', () => {
         const isOpen = navLinks.classList.contains('is-open');
         isOpen ? closeMenu() : openMenu();
     });
 
-    // Zavřít menu po kliknutí na odkaz
     navItems.forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Zavřít menu klávesou Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
             closeMenu();
@@ -101,11 +59,6 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
     });
 })();
 
-/* ================================================================
-   3. SMOOTH SCROLL PRO KOTVY
-   Zachycuje kliknutí na interní # odkazy a plynule scrolluje.
-   Kompenzuje výšku fixed navigace.
-================================================================ */
 (function initSmoothScroll() {
     const NAV_HEIGHT = parseInt(
         getComputedStyle(document.documentElement).getPropertyValue('--nav-height') || '76',
@@ -130,19 +83,12 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
     });
 })();
 
-/* ================================================================
-   4. SCROLL ANIMACE — INTERSECTION OBSERVER
-   Elementy s třídou .reveal-up nebo .reveal-right
-   dostávají třídu .is-visible, jakmile vstoupí do viewportu.
-================================================================ */
 (function initRevealAnimations() {
     const revealEls = qsa('.reveal-up, .reveal-right');
     if (!revealEls.length) return;
 
-    // Respektovat přání uživatele ohledně pohybů
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-        // Okamžitě zobrazit vše bez animace
         revealEls.forEach(el => el.classList.add('is-visible'));
         return;
     }
@@ -152,26 +98,19 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Přestat sledovat element po jeho zobrazení
                     observer.unobserve(entry.target);
                 }
             });
         },
         {
-            threshold: 0.12,       // Aktivovat, když je viditelných 12 % elementu
-            rootMargin: '0px 0px -40px 0px' // Trochu dřív, aby animace nevypadala zpožděná
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
         }
     );
 
     revealEls.forEach(el => observer.observe(el));
 })();
 
-/* ================================================================
-   5. HERO PARALLAX
-   Při srolování posune hero obrázek o polovinu vzdálenosti —
-   vytváří efekt hloubky. Deaktivuje se na zařízeních,
-   která preferují méně pohybu.
-================================================================ */
 (function initHeroParallax() {
     const heroImg = qs('.hero__bg-img');
     if (!heroImg) return;
@@ -187,7 +126,6 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
         const scrollY   = window.scrollY;
         const heroHeight = heroImg.closest('.hero').offsetHeight;
 
-        // Animovat pouze dokud je hero ve viewportu
         if (scrollY > heroHeight) {
             rafId = null;
             return;
@@ -207,11 +145,6 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
     }, { passive: true });
 })();
 
-/* ================================================================
-   6. SCROLLSPY — AKTIVNÍ ODKAZ V NAVIGACI
-   Podtrhuje/zvýrazňuje odkaz v navigaci podle sekce,
-   ve které se uživatel právě nachází.
-================================================================ */
 (function initScrollspy() {
     const sections  = qsa('main section[id]');
     const navLinks  = qsa('.nav__link:not(.nav__link--cta)');
@@ -254,10 +187,6 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
     updateActiveLink();
 })();
 
-/* ================================================================
-   7. BACK-TO-TOP TLAČÍTKO
-   Zobrazí se po srolování > 400px. Plynule scrolluje nahoru.
-================================================================ */
 (function initBackToTop() {
     const btn = qs('#back-to-top');
     if (!btn) return;
@@ -281,10 +210,6 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
     toggleBtn();
 })();
 
-/* ================================================================
-   8. CTA PILLS — micro hover interakce
-   Pill tagy v sekci pozvání dostávají lehký stagger při vstupu.
-================================================================ */
 (function initCtaPills() {
     const pills = qsa('.cta-pill');
     pills.forEach((pill, i) => {
@@ -292,9 +217,6 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
     });
 })();
 
-/* ================================================================
-   HIGHLIGHT NAV LINK — přidat vizuální styl pro aktivní stav
-================================================================ */
 (function addActiveLinkStyles() {
     const style = document.createElement('style');
     style.textContent = `
@@ -308,8 +230,4 @@ const qsa = (selector, scope = document) => scope.querySelectorAll(selector);
     document.head.appendChild(style);
 })();
 
-/* ================================================================
-   INICIALIZACE — log pro ladění
-================================================================ */
 console.log('%c🇨🇿 Česká republika — Srdce Evropy', 'color:#6B1E3A; font-size:14px; font-weight:bold;');
-console.log('%cVšechny moduly úspěšně inicializovány.', 'color:#C9A84C; font-size:11px;');

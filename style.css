@@ -1,30 +1,18 @@
-/* ================================================================
-   STYLE.CSS — Česká republika: Srdce Evropy
-   Architektura: CSS Variables → Reset → Base → Layout →
-                 Components → Sections → Animace → Media queries
-================================================================ */
-
-/* ----------------------------------------------------------------
-   1. CSS PROMĚNNÉ (Design Tokens)
----------------------------------------------------------------- */
 :root {
-    /* Paleta barev */
-    --clr-garnet:    #6B1E3A;   /* Čechy granát — primární */
-    --clr-garnet-dk: #4A1228;   /* Tmavší varianta */
-    --clr-garnet-lt: #8C2D4F;   /* Světlejší varianta */
-    --clr-gold:      #C9A84C;   /* Zlatý akcent */
-    --clr-steel:     #2D4A6E;   /* Ocelová modrá */
-    --clr-cream:     #F7F4EF;   /* Smetanový podklad */
+    --clr-garnet:    #6B1E3A;
+    --clr-garnet-dk: #4A1228;
+    --clr-garnet-lt: #8C2D4F;
+    --clr-gold:      #C9A84C;
+    --clr-steel:     #2D4A6E;
+    --clr-cream:     #F7F4EF;
     --clr-white:     #FFFFFF;
-    --clr-graphite:  #1C1C1E;   /* Hlavní text */
-    --clr-mid:       #5A5A5A;   /* Sekundární text */
-    --clr-border:    #E0DAD3;   /* Jemné ohraničení */
+    --clr-graphite:  #1C1C1E;
+    --clr-mid:       #5A5A5A;
+    --clr-border:    #E0DAD3;
 
-    /* Typografie */
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body:    'Inter', system-ui, sans-serif;
 
-    /* Velikosti písma (fluid) */
     --fs-xs:   0.75rem;
     --fs-sm:   0.875rem;
     --fs-base: 1rem;
@@ -35,7 +23,6 @@
     --fs-3xl:  clamp(2.5rem, 5vw, 4rem);
     --fs-hero: clamp(3.5rem, 9vw, 7.5rem);
 
-    /* Mezery */
     --space-xs:  0.5rem;
     --space-sm:  1rem;
     --space-md:  1.5rem;
@@ -43,7 +30,6 @@
     --space-xl:  4rem;
     --space-2xl: 7rem;
 
-    /* Ostatní */
     --radius-sm: 4px;
     --radius-md: 10px;
     --radius-lg: 20px;
@@ -53,9 +39,6 @@
     --nav-height: 76px;
 }
 
-/* ----------------------------------------------------------------
-   2. RESET & BASE
----------------------------------------------------------------- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -98,18 +81,12 @@ button {
     font: inherit;
 }
 
-/* ----------------------------------------------------------------
-   3. LAYOUT UTILITIES
----------------------------------------------------------------- */
 .container {
     width: min(100%, 1200px);
     margin-inline: auto;
     padding-inline: clamp(1.25rem, 5vw, 3rem);
 }
 
-/* ----------------------------------------------------------------
-   4. TYPOGRAFICKÉ UTILITY
----------------------------------------------------------------- */
 .section-eyebrow {
     font-family: var(--font-body);
     font-size: var(--fs-xs);
@@ -134,9 +111,6 @@ button {
     text-align: center;
 }
 
-/* ----------------------------------------------------------------
-   5. TLAČÍTKA
----------------------------------------------------------------- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -208,9 +182,6 @@ button {
     transform: translateX(4px);
 }
 
-/* ----------------------------------------------------------------
-   6. NAVIGACE
----------------------------------------------------------------- */
 .site-header {
     position: fixed;
     top: 0;
@@ -223,7 +194,6 @@ button {
     transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
 }
 
-/* Stav po srolování */
 .site-header.scrolled {
     background: rgba(247, 244, 239, 0.92);
     backdrop-filter: blur(16px);
@@ -320,7 +290,6 @@ button {
     transform: translateY(-1px);
 }
 
-/* Hamburger */
 .nav__burger {
     display: none;
     flex-direction: column;
@@ -342,7 +311,6 @@ button {
     background: var(--clr-graphite);
 }
 
-/* Animace hamburgeru → X */
 .nav__burger.active .nav__burger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -354,9 +322,6 @@ button {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ----------------------------------------------------------------
-   7. HERO SEKCE
----------------------------------------------------------------- */
 .hero {
     position: relative;
     min-height: 100dvh;
@@ -431,7 +396,6 @@ button {
     font-weight: 300;
 }
 
-/* Scroll indikátor */
 .hero__scroll-hint {
     position: absolute;
     bottom: 2.5rem;
@@ -462,12 +426,9 @@ button {
 
 @keyframes scrollPulse {
     0%, 100% { opacity: 0.4; }
-    50%       { opacity: 0.9; }
+    50%      { opacity: 0.9; }
 }
 
-/* ----------------------------------------------------------------
-   8. O ČESKU
----------------------------------------------------------------- */
 .about {
     padding: var(--space-2xl) 0;
     background: var(--clr-cream);
@@ -521,7 +482,6 @@ button {
     text-transform: uppercase;
 }
 
-/* Obrázek s odznakem */
 .about__img-frame {
     position: relative;
     border-radius: var(--radius-lg);
@@ -566,21 +526,18 @@ button {
     margin-top: 1px;
 }
 
-/* ----------------------------------------------------------------
-   9. DOMINANTY / KARTY MÍST
----------------------------------------------------------------- */
-.places {
+.cards-section {
     padding: var(--space-2xl) 0;
     background: var(--clr-graphite);
 }
 
-.places .section-eyebrow { color: var(--clr-gold); }
+.cards-section .section-eyebrow { color: var(--clr-gold); }
 
-.places .section-title {
+.cards-section .section-title {
     color: var(--clr-white);
 }
 
-.places__intro {
+.cards-section__intro {
     text-align: center;
     color: rgba(255,255,255,0.6);
     font-size: var(--fs-md);
@@ -588,13 +545,13 @@ button {
     margin: 0 auto var(--space-2xl);
 }
 
-.places__grid {
+.cards-section__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-md);
 }
 
-.place-card {
+.feature-card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius-md);
@@ -602,31 +559,31 @@ button {
     transition: var(--transition);
 }
 
-.place-card:hover {
+.feature-card:hover {
     background: rgba(255,255,255,0.08);
     border-color: rgba(201, 168, 76, 0.3);
     transform: translateY(-4px);
     box-shadow: 0 20px 48px rgba(0,0,0,0.4);
 }
 
-.place-card__img-wrap {
+.feature-card__img-wrap {
     position: relative;
     overflow: hidden;
     aspect-ratio: 4 / 3;
 }
 
-.place-card__img-wrap img {
+.feature-card__img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.place-card:hover .place-card__img-wrap img {
+.feature-card:hover .feature-card__img-wrap img {
     transform: scale(1.08);
 }
 
-.place-card__tag {
+.feature-card__tag {
     position: absolute;
     top: var(--space-sm);
     left: var(--space-sm);
@@ -640,11 +597,11 @@ button {
     border-radius: 50px;
 }
 
-.place-card__body {
+.feature-card__body {
     padding: var(--space-md);
 }
 
-.place-card__title {
+.feature-card__title {
     font-family: var(--font-display);
     font-size: var(--fs-xl);
     font-weight: 700;
@@ -652,14 +609,14 @@ button {
     margin-bottom: 0.5rem;
 }
 
-.place-card__desc {
+.feature-card__desc {
     font-size: var(--fs-sm);
     color: rgba(255,255,255,0.55);
     line-height: 1.65;
     margin-bottom: var(--space-md);
 }
 
-.place-card__link {
+.feature-card__link {
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--clr-gold);
@@ -669,13 +626,10 @@ button {
     transition: gap var(--transition);
 }
 
-.place-card:hover .place-card__link {
+.feature-card:hover .feature-card__link {
     gap: 0.75rem;
 }
 
-/* ----------------------------------------------------------------
-   10. CITÁT / QUOTE BAND
----------------------------------------------------------------- */
 .quote-band {
     padding: var(--space-2xl) 0;
     background: var(--clr-garnet);
@@ -719,9 +673,6 @@ button {
     font-weight: 500;
 }
 
-/* ----------------------------------------------------------------
-   11. GALERIE
----------------------------------------------------------------- */
 .gallery {
     padding: var(--space-2xl) 0;
     background: var(--clr-cream);
@@ -744,11 +695,10 @@ button {
     background: var(--clr-border);
 }
 
-/* Rozmístění položek galerie */
-.gallery__item:nth-child(1) { grid-column: 1 / 5; grid-row: 1 / 3; } /* tall */
+.gallery__item:nth-child(1) { grid-column: 1 / 5; grid-row: 1 / 3; }
 .gallery__item:nth-child(2) { grid-column: 5 / 8; grid-row: 1 / 2; }
 .gallery__item:nth-child(3) { grid-column: 8 / 13; grid-row: 1 / 2; }
-.gallery__item:nth-child(4) { grid-column: 5 / 9; grid-row: 2 / 3; } /* wide */
+.gallery__item:nth-child(4) { grid-column: 5 / 9; grid-row: 2 / 3; }
 .gallery__item:nth-child(5) { grid-column: 9 / 11; grid-row: 2 / 3; }
 .gallery__item:nth-child(6) { grid-column: 11 / 13; grid-row: 2 / 3; }
 
@@ -785,9 +735,6 @@ button {
     transform: translateY(0);
 }
 
-/* ----------------------------------------------------------------
-   12. CTA — POZVÁNÍ DO ČESKA
----------------------------------------------------------------- */
 .cta-invite {
     position: relative;
     min-height: 92vh;
@@ -864,7 +811,6 @@ button {
     max-width: 560px;
 }
 
-/* Pill tagy */
 .cta-invite__pills {
     display: flex;
     flex-wrap: wrap;
@@ -894,7 +840,6 @@ button {
     background: rgba(201, 168, 76, 0.12);
 }
 
-/* Tlačítka CTA */
 .cta-invite__actions {
     display: flex;
     gap: var(--space-md);
@@ -930,9 +875,6 @@ button {
     transform: translateY(-2px);
 }
 
-/* ----------------------------------------------------------------
-   14. FOOTER
----------------------------------------------------------------- */
 .site-footer {
     background: #111113;
     padding: var(--space-xl) 0;
@@ -980,9 +922,6 @@ button {
 
 .footer__nav a:hover { color: var(--clr-gold); }
 
-/* ----------------------------------------------------------------
-   15. BACK-TO-TOP TLAČÍTKO
----------------------------------------------------------------- */
 .back-to-top {
     position: fixed;
     bottom: 2rem;
@@ -1016,9 +955,6 @@ button {
     box-shadow: 0 8px 24px rgba(107, 30, 58, 0.5);
 }
 
-/* ----------------------------------------------------------------
-   16. SCROLL ANIMACE (Intersection Observer třídy)
----------------------------------------------------------------- */
 .reveal-up,
 .reveal-right {
     opacity: 0;
@@ -1039,7 +975,6 @@ button {
     transform: none;
 }
 
-/* Postupné zpoždění pro děti ve stejné skupině */
 .reveal-up:nth-child(1) { transition-delay: 0.00s; }
 .reveal-up:nth-child(2) { transition-delay: 0.10s; }
 .reveal-up:nth-child(3) { transition-delay: 0.18s; }
@@ -1047,17 +982,10 @@ button {
 .reveal-up:nth-child(5) { transition-delay: 0.34s; }
 .reveal-up:nth-child(6) { transition-delay: 0.42s; }
 
-/* Karty s explicitním staggerem */
-.places__grid .place-card:nth-child(1) { transition-delay: 0.00s; }
-.places__grid .place-card:nth-child(2) { transition-delay: 0.08s; }
-.places__grid .place-card:nth-child(3) { transition-delay: 0.16s; }
-.places__grid .place-card:nth-child(4) { transition-delay: 0.24s; }
-.places__grid .place-card:nth-child(5) { transition-delay: 0.32s; }
-.places__grid .place-card:nth-child(6) { transition-delay: 0.40s; }
+.cards-section__grid .feature-card:nth-child(1) { transition-delay: 0.00s; }
+.cards-section__grid .feature-card:nth-child(2) { transition-delay: 0.08s; }
+.cards-section__grid .feature-card:nth-child(3) { transition-delay: 0.16s; }
 
-/* ----------------------------------------------------------------
-   17. PŘÍSTUPNOST — REDUKOVANÉ POHYBY
----------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1070,11 +998,6 @@ button {
     }
 }
 
-/* ----------------------------------------------------------------
-   18. RESPONZIVNÍ DESIGN
----------------------------------------------------------------- */
-
-/* Tablet — 960px */
 @media (max-width: 960px) {
     :root { --nav-height: 68px; }
 
@@ -1095,7 +1018,7 @@ button {
         gap: var(--space-lg);
     }
 
-    .places__grid {
+    .cards-section__grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1123,14 +1046,12 @@ button {
     }
 }
 
-/* Mobil — 640px */
 @media (max-width: 640px) {
     :root {
         --nav-height: 64px;
         --space-2xl: 5rem;
     }
 
-    /* Mobilní navigace */
     .nav__burger {
         display: flex;
     }
@@ -1167,7 +1088,6 @@ button {
         padding: 0.75rem 2.5rem !important;
     }
 
-    /* Hero */
     .hero__title {
         line-height: 1;
     }
@@ -1180,7 +1100,6 @@ button {
         display: none;
     }
 
-    /* O Česku */
     .about__stats {
         flex-wrap: wrap;
         gap: var(--space-md);
@@ -1190,12 +1109,10 @@ button {
         height: 300px;
     }
 
-    /* Dominanty */
-    .places__grid {
+    .cards-section__grid {
         grid-template-columns: 1fr;
     }
 
-    /* Galerie */
     .gallery__mosaic {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1212,7 +1129,6 @@ button {
         height: auto;
     }
 
-    /* Footer */
     .footer__nav {
         flex-wrap: wrap;
         justify-content: center;
